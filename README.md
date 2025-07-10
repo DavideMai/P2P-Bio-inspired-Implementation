@@ -1,4 +1,5 @@
-HOW TO RUN A JADE PROGRAM ON ECLIPSE:
+## HOW TO RUN A JADE PROGRAM ON ECLIPSE:
+- Import the project in your workspace
 - Download Jade library from https://jade.tilab.com/download/jade/license/jade-download/, more precisely the jadeBin package.
 - Right-click on the project->Build Path->Configure Build Path
 - Libraries->Classpath->Add External JARs
