@@ -16,13 +16,14 @@ import jade.lang.acl.ACLMessage;
 import jade.wrapper.StaleProxyException;
 
 /**
- * Class for creating agents that follow the spreading pattern. Each agent, when
- * receiving a message, checks if it isn't null. If it isn't, it sends it to its
- * neighbors, prints the received message and stops. Before running the program,
- * make sure that the arguments are -gui
+ * Class for creating an agent that starts the dissemination on the spreading
+ * pattern. It sends its name to its neighbors once. Before running the program, make
+ * sure that the arguments are -gui
  * A1:spreading.DiffusionAgent;A2:spreading.SpreadingAgent;A3:spreading.SpreadingAgent;A4:spreading.SpreadingAgent;A5:spreading.SpreadingAgent;A6:spreading.SpreadingAgent;A7:spreading.SpreadingAgent;A8:spreading.SpreadingAgent;A9:spreading.SpreadingAgent;A10:spreading.SpreadingAgent;A11:spreading.SpreadingAgent;A12:spreading.SpreadingAgent;A13:spreading.SpreadingAgent;A14:spreading.SpreadingAgent;A15:spreading.SpreadingAgent;A16:spreading.SpreadingAgent
+ * for different tests, you can set one agent as SpreadingAgent or DiffusionAgent.
+ * For testing, I use one diffusion agent and 15 spreading agents.
  */
-public class SpreadingAgent extends Agent {
+public class DiffusionAgent extends Agent {
 
 	/**
 	 * everytime an agent starts, it starts the setup
@@ -40,40 +41,11 @@ public class SpreadingAgent extends Agent {
 		for (AID a : receivers) {
 			message.addReceiver(a);
 		}
-
 		/**
-		 * the behavior of the Agent. It starts every 100ms
+		 * here the Agent sends its neighbors its name. Happens only once, as it is
+		 * enough
 		 */
-		addBehaviour(new TickerBehaviour(this, 100) {
-
-			@Override
-			protected void onTick() {
-				ACLMessage receivedMessage = receive();
-
-				if (receivedMessage != null) {
-					String content = receivedMessage.getContent();
-					AID sender = receivedMessage.getSender();
-
-					/**
-					 * forward the received message to every neighbor, except the sender
-					 */
-					ACLMessage newMessage = new ACLMessage(ACLMessage.INFORM);
-					newMessage.setContent(content);
-					for (AID aid : receivers) {
-						if (!aid.equals(sender)) {
-							newMessage.addReceiver(aid);
-						}
-					}
-					send(newMessage);
-					System.out.println(this.getAgent().getLocalName() + " received " + content);
-					/**
-					 * removes the behaviour once the agent has spread the received message.
-					 */
-					this.getAgent().removeBehaviour(this);
-				}
-
-			}
-		});
+		send(message);
 
 	}
 
@@ -217,5 +189,4 @@ public class SpreadingAgent extends Agent {
 		}
 		return neighbors;
 	}
-
 }
