@@ -13,13 +13,14 @@ import jade.core.behaviours.TickerBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.wrapper.StaleProxyException;
 
-
 /**
- * this class models an Agent that follows the evaporation pattern.
- * When an agent receives a message, it stores its content into a HashMap with relevance 10
- * After a tick (5 seconds), the relevance gets reduced by 1.
- * When the relevance becomes 0, the corresponding content gets removed from the map.
- * 
+ * this class models an Agent that follows the evaporation pattern. When an
+ * agent receives a message, it stores its content into a HashMap with relevance
+ * 10 After a tick (5 seconds), the relevance gets reduced by 1. When the
+ * relevance becomes 0, the corresponding content gets removed from the map. To
+ * run this pattern, please use -gui
+ * A1:evaporation.EvaporationAgent;A2:evaporation.EvaporationAgent;A3:evaporation.EvaporationAgent;A4:evaporation.EvaporationAgent;A5:evaporation.EvaporationAgent;A6:evaporation.EvaporationAgent;A7:evaporation.EvaporationAgent;A8:evaporation.EvaporationAgent;A9:evaporation.EvaporationAgent;A10:evaporation.EvaporationAgent;A11:evaporation.EvaporationAgent;A12:evaporation.EvaporationAgent;A13:evaporation.EvaporationAgent;A14:evaporation.EvaporationAgent;A15:evaporation.EvaporationAgent;A16:evaporation.EvaporationAgent
+ * as program arguments.
  */
 public class EvaporationAgent extends Agent {
 
