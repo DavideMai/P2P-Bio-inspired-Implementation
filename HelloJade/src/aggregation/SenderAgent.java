@@ -18,6 +18,8 @@ import jade.lang.acl.ACLMessage;
  * pattern, please use -gui
  * Aggregator1:aggregation.AggregatorAgent;A2:aggregation.SenderAgent;A3:aggregation.SenderAgent;A4:aggregation.SenderAgent;A5:aggregation.SenderAgent;A6:aggregation.SenderAgent;A7:aggregation.SenderAgent;A8:aggregation.SenderAgent;A9:aggregation.SenderAgent;A10:aggregation.SenderAgent;A11:aggregation.SenderAgent;A12:aggregation.SenderAgent;A13:aggregation.SenderAgent;A14:aggregation.SenderAgent;A15:aggregation.SenderAgent;A16:aggregation.SenderAgent
  * as parameters. Every aggregator has to contain the word Aggregator.
+ * 
+ * MAY NEED TO BE DELETED
  */
 public class SenderAgent extends Agent {
 

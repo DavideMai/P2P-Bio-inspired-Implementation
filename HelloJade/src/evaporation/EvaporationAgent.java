@@ -21,6 +21,8 @@ import jade.wrapper.StaleProxyException;
  * run this pattern, please use -gui
  * A1:evaporation.EvaporationAgent;A2:evaporation.EvaporationAgent;A3:evaporation.EvaporationAgent;A4:evaporation.EvaporationAgent;A5:evaporation.EvaporationAgent;A6:evaporation.EvaporationAgent;A7:evaporation.EvaporationAgent;A8:evaporation.EvaporationAgent;A9:evaporation.EvaporationAgent;A10:evaporation.EvaporationAgent;A11:evaporation.EvaporationAgent;A12:evaporation.EvaporationAgent;A13:evaporation.EvaporationAgent;A14:evaporation.EvaporationAgent;A15:evaporation.EvaporationAgent;A16:evaporation.EvaporationAgent
  * as program arguments.
+ * 
+ * THERE MAY BE NO FURTHER DEVELOPMENT
  */
 public class EvaporationAgent extends Agent {
 
@@ -44,7 +46,7 @@ public class EvaporationAgent extends Agent {
 		message.setContent(String.valueOf(randomNumber));
 		send(message);
 
-		addBehaviour(new TickerBehaviour(this, 5000) {
+		addBehaviour(new TickerBehaviour(this, 2000) {
 
 			@Override
 			protected void onTick() {

@@ -42,7 +42,9 @@ public class SpreadingAgent extends Agent {
 		}
 
 		/**
-		 * the behavior of the Agent. It starts every 100ms
+		 * the behavior of the Agent. It starts every 100ms aggiungi file di
+		 * configurazione per il parametro temporale e per ogni cosa hard-coded
+		 * (collegamenti tra nodi)
 		 */
 		addBehaviour(new TickerBehaviour(this, 100) {
 
@@ -68,6 +70,7 @@ public class SpreadingAgent extends Agent {
 					System.out.println(this.getAgent().getLocalName() + " received " + content);
 					/**
 					 * removes the behaviour once the agent has spread the received message.
+					 * può essere rimosso
 					 */
 					this.getAgent().removeBehaviour(this);
 				}
@@ -81,6 +84,8 @@ public class SpreadingAgent extends Agent {
 	 * This method sets connections for every agent. I plan on using 16 Agents,
 	 * named A1...A16. With the help of Gemini AI I created a connection map where
 	 * every agent is connected to 4 agents.
+	 * 
+	 * DA ToGLIERE Aggiungi tabella correlazione articolo-codice
 	 * 
 	 * @return the list of receivers for the given agent
 	 */
