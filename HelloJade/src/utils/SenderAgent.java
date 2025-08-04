@@ -9,19 +9,21 @@ import jade.core.behaviours.TickerBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.UnreadableException;
 
-public abstract class SenderAgent extends UtilityAgent{
-	
+public abstract class SenderAgent extends UtilityAgent {
+
 	/**
 	 * baseline for the setup method of an Agent that sends some data
 	 */
 	@Override
 	public void setup() {
 		List<AID> neighbours = this.setConnections("src/connections.txt");
-		
+
+		printNeighbours(neighbours, getLocalName());
+
 		ACLMessage message = new ACLMessage(ACLMessage.INFORM);
-		
+
 		setReceivers(message, neighbours);
-		
+
 		addBehaviour(new TickerBehaviour(this, getAgentPeriod("src/config/periods.txt")) {
 
 			@Override
@@ -32,15 +34,17 @@ public abstract class SenderAgent extends UtilityAgent{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 				send(message);
 
 			}
 		});
 	}
-	
+
 	/**
-	 * method that generates the content of a message. Has to be implemented for every use case.
+	 * method that generates the content of a message. Has to be implemented for
+	 * every use case.
+	 * 
 	 * @return the content of the message
 	 */
 	public abstract Serializable generateContent();
