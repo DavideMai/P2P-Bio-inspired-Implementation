@@ -1,9 +1,3 @@
-/evaporation/
-/spreading/
-/aggregation/
+/temperatureSensors/
 /utils/
-/config
-/config.txt
-/connections.txt
-/values.txt
-/periods.txt
+/config/

@@ -1,18 +1,22 @@
 @echo off
-setlocal ENABLEDELAYEDEXPANSION
+setlocal EnableDelayedExpansion
 
-rem 
-set JADE_LIB=lib\jade.jar
-set CLASSES_DIR=classes
+REM === Imposta la classe principale di JADE (modifica se diverso) ===
+set MAIN_CLASS=jade.Boot
 
-rem 
+REM === Cartella delle classi e librerie ===
+set CLASSPATH=.;lib\jade.jar;bin
+
+REM === File di configurazione ===
+set CONFIG_FILE=config.txt
+
+REM === Costruisce la stringa degli agenti ===
 set AGENT_STRING=
-for /f "tokens=*" %%A in (config.txt) do (
-    set "line=%%A"
-    set "line=!line:;=!"
-    set "AGENT_STRING=!AGENT_STRING!!line!;"
+
+for /f "usebackq delims=" %%A in ("%CONFIG_FILE%") do (
+    set LINE=%%A
+    set AGENT_STRING=!AGENT_STRING!!LINE!
 )
 
-rem 
-echo Avvio agenti: %AGENT_STRING%
-java -cp %JADE_LIB%;%CLASSES_DIR% jade.Boot -gui %AGENT_STRING%
+echo Avvio agenti: !AGENT_STRING!
+java -cp %CLASSPATH% %MAIN_CLASS% -gui !AGENT_STRING!

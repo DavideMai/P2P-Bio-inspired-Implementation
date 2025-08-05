@@ -1,7 +1,6 @@
 package utils;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +8,7 @@ import jade.core.AID;
 import jade.core.behaviours.TickerBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.UnreadableException;
+import jade.util.leap.Serializable;
 import temperatureSensors.Temperature;
 
 public abstract class GossipAgent extends UtilityAgent {
@@ -32,7 +32,6 @@ public abstract class GossipAgent extends UtilityAgent {
 	 */
 	@Override
 	protected void setup() {
-		doWait(1000);
 		List<AID> neighbours = this.setConnections("src/config/connections.txt");
 		List<Serializable> receivedContent = new ArrayList<>();
 

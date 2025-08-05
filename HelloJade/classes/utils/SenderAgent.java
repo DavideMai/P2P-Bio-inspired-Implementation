@@ -16,8 +16,7 @@ public abstract class SenderAgent extends UtilityAgent {
 	 */
 	@Override
 	public void setup() {
-		doWait(1000);
-		List<AID> neighbours = this.setConnections("src/config/connections.txt");
+		List<AID> neighbours = this.setConnections("src/connections.txt");
 
 		printNeighbours(neighbours, getLocalName());
 

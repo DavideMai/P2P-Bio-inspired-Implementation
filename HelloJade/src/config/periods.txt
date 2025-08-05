@@ -1,0 +1,7 @@
+DisplayCentrale: 1000
+SensoreCucina: 1000
+SensoreSala: 1000
+SensoreLetto: 1000
+DisplaySala: 1000
+DisplayLetto: 1000
+DisplayCucina: 1000
