@@ -50,11 +50,12 @@ public class SerializableFireMap implements Serializable {
 	 * method to print the map
 	 * @param name the name of the robot
 	 */
-	public void printMap(String name) {
-		System.out.println(name);
-		for (int i = 0; i < this.getSize(); i++) {
-
-			System.out.println("Stanza : " + i + "\nIncendio : " + getFireStatus(i));
-		}
+	public synchronized void printMap(String name) {
+		synchronized (SerializableFireMap.class) {
+	        System.out.println(name);
+	        for (int i = 0; i < this.getSize(); i++) {
+	            System.out.println("Stanza : " + i + "\nIncendio : " + getFireStatus(i));
+	        }
+	    }
 	}
 }
