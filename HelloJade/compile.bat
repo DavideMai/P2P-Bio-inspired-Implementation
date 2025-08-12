@@ -8,7 +8,8 @@ rmdir /s /q bin
 mkdir bin
 
 rem === Compila tutti i .java in bin/
-javac -cp lib\jade.jar -d bin src\utils\*.java src\temperatureSensors\*.java
+javac -cp lib\jade.jar -d bin src\utils\*.java src\temperatureSensors\*.java src\robotFirefighters\*.java
+
 
 if %errorlevel% neq 0 (
     echo Errore durante la compilazione!

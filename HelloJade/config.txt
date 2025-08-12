@@ -1,7 +1,5 @@
-SensoreCucina:temperatureSensors.TemperatureSensor;
-SensoreSala:temperatureSensors.TemperatureSensor;
-DisplayCucina:temperatureSensors.TemperatureDisplayer;
-DisplaySala:temperatureSensors.TemperatureDisplayer;
-SensoreLetto:temperatureSensors.TemperatureSensor;
-DisplayLetto:temperatureSensors.TemperatureDisplayer;
-DisplayCentrale:temperatureSensors.TemperatureDisplayer;
+Robot1:robotFirefighters.FireFighter;
+Robot2:robotFirefighters.FireFighter;
+Robot3:robotFirefighters.FireFighter;
+Robot4:robotFirefighters.FireFighter;
+Robot5:robotFirefighters.FireFighter;

@@ -42,36 +42,37 @@ public abstract class GossipAgent extends UtilityAgent {
 
 			@Override
 			public void onTick() {
-				ACLMessage message = receive();
-				ACLMessage newMessage = new ACLMessage(ACLMessage.INFORM);
-				List<AID> receivers = new ArrayList<>();
+			    List<Serializable> receivedContent = new ArrayList<>();
+			    ACLMessage message;
 
-				Serializable aggregatedContent = null;
+			    // Leggi tutti i messaggi disponibili
+			    while ((message = receive()) != null) {
+			        try {
+			            receivedContent.add((Serializable) message.getContentObject());
+			        } catch (UnreadableException e) {
+			            e.printStackTrace();
+			        }
+			    }
 
-				if (message != null) {
-					try {
-						receivedContent.add((Serializable) message.getContentObject());
-					} catch (UnreadableException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+			    if (!receivedContent.isEmpty()) {
+			        ACLMessage newMessage = new ACLMessage(ACLMessage.INFORM);
+			        Serializable aggregatedContent = aggregate(receivedContent);
 
-					aggregatedContent = aggregate(receivedContent);
-					try {
-						newMessage.setContentObject(aggregatedContent);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					for (AID a : neighbours) {
-						newMessage.addReceiver(a);
-					}
+			        try {
+			            newMessage.setContentObject(aggregatedContent);
+			        } catch (IOException e) {
+			            e.printStackTrace();
+			        }
 
-					send(newMessage);
-					
-					printRecap(aggregatedContent, neighbours, getLocalName());
-				}
+			        for (AID a : neighbours) {
+			            newMessage.addReceiver(a);
+			        }
+
+			        send(newMessage);
+			        printRecap(aggregatedContent, neighbours, getLocalName());
+			    }
 			}
+
 		});
 	}
 }

@@ -1,7 +1,5 @@
-DisplayCentrale: 1000
-SensoreCucina: 1000
-SensoreSala: 1000
-SensoreLetto: 1000
-DisplaySala: 1000
-DisplayLetto: 1000
-DisplayCucina: 1000
+Robot1: 5000
+Robot2: 10000
+Robot3: 15000
+Robot4: 1000
+Robot5: 2000

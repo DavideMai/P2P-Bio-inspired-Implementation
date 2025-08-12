@@ -9,6 +9,7 @@ import jade.core.behaviours.TickerBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.UnreadableException;
 
+
 public abstract class SpreadingAgent extends UtilityAgent {
 
 	@Override

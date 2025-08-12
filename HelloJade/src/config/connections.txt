@@ -1,6 +1,5 @@
-DisplayCentrale: SensoreCucina, SensoreSala, SensoreLetto, DisplayCucina, DisplaySala, DisplayLetto
-SensoreCucina: DisplayCentrale
-SensoreSala: DisplayCentrale
-SensoreLetto: DisplayCentrale
-DisplaySala: DisplayCentrale
-DisplayLetto: DisplayCentrale
+Robot1: Robot2,Robot3,Robot4,Robot5
+Robot2: Robot1,Robot3,Robot4,Robot5
+Robot3: Robot1,Robot2,Robot4,Robot5
+Robot4: Robot1,Robot2,Robot3,Robot5
+Robot5: Robot1,Robot2,Robot3,Robot4
