@@ -101,7 +101,9 @@ public class FireFighter extends GossipAgent {
 	 */
 	@Override
 	public void printRecap(Serializable aggregatedContent, List<AID> neighbours, String localName) {
-
+		
+		System.out.println("\n\u001B[32m========== " + localName + " ==========");
+		
 		if (incendioSpento) {
 			System.out.println(
 					"\u001B[32mIl robot " + localName + " ha spento l'incendio nella stanza " + getPosizioneCorrente());

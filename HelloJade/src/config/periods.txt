@@ -1,5 +1,4 @@
-Robot1: 5000
-Robot2: 10000
-Robot3: 15000
-Robot4: 5000
-Robot5: 2000
+TermometroSala: 1000
+TermometroCucina: 1000
+TermometroLetto: 1000
+TermometroBagno: 1000
