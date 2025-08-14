@@ -1,6 +1,0 @@
-DisplayCentrale: SensoreCucina, SensoreSala, SensoreLetto, DisplayCucina, DisplaySala, DisplayLetto
-SensoreCucina: DisplayCentrale
-SensoreSala: DisplayCentrale
-SensoreLetto: DisplayCentrale
-DisplaySala: DisplayCentrale
-DisplayLetto: DisplayCentrale

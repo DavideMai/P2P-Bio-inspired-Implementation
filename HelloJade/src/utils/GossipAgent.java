@@ -34,7 +34,6 @@ public abstract class GossipAgent extends UtilityAgent {
 	protected void setup() {
 		doWait(1000);
 		List<AID> neighbours = this.setConnections("src/config/connections.txt");
-		List<Serializable> receivedContent = new ArrayList<>();
 
 		printNeighbours(neighbours, getLocalName());
 
@@ -45,7 +44,7 @@ public abstract class GossipAgent extends UtilityAgent {
 			    List<Serializable> receivedContent = new ArrayList<>();
 			    ACLMessage message;
 
-			    // Leggi tutti i messaggi disponibili
+			    // reads every message in the buffer
 			    while ((message = receive()) != null) {
 			        try {
 			            receivedContent.add((Serializable) message.getContentObject());

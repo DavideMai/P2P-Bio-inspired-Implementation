@@ -67,7 +67,7 @@ public class UtilityAgent extends Agent {
 
 	public int getAgentPeriod(String filePath) {
 		String myName = this.getLocalName();
-		int value = -1; // valore di default in caso di errore o assenza
+		int value = -1; // default value if it is missing
 		try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 			String line;
 
