@@ -54,8 +54,8 @@ public class TemperatureSensor extends GossipAgent {
 
 		synchronized (System.out) {
 			System.out.println("\n\u001B[32m========== " + localName + " ==========");
-			System.out.printf("\u001B[37mTemperatura media attuale: %.2f", avgTemp.getValue());
-			System.out.printf("\nTemperatura attuale nella stanza: %.2f", this.t.getValue());
+			System.out.printf("\u001B[37mTemperatura media attuale: %.2f°C", avgTemp.getValue());
+			System.out.printf("\nTemperatura attuale nella stanza: %.2f°C", this.t.getValue());
 			
 		}
 
