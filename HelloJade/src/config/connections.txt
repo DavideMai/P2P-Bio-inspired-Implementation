@@ -1,4 +1,4 @@
-TermometroSala: TermometroCucina,TermometroLetto,TermometroBagno
-TermometroCucina: TermometroLetto,TermometroBagno,TermometroSala
-TermometroLetto: TermometroSala,TermometroBagno,TermometroCucina
-TermometroBagno: TermometroSala,TermometroCucina,TermometroLetto
+Robot1: Robot2,Robot3,Robot4
+Robot2: Robot1,Robot3,Robot4
+Robot3: Robot1,Robot2,Robot4
+Robot4: Robot1,Robot2,Robot3

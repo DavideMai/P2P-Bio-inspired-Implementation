@@ -1,1 +1,1 @@
-http://LAPTOP-JLOD24HP:7778/acc
+http://LAPTOP-JLOD24HP.homenet.telecomitalia.it:7778/acc

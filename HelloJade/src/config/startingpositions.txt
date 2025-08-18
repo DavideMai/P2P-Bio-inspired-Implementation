@@ -2,4 +2,3 @@ Robot1,10
 Robot2,12
 Robot3,2
 Robot4,15
-Robot5,1

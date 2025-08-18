@@ -85,12 +85,7 @@ public class FireFighter extends GossipAgent {
 			localFireMap.setFire(getPosizioneCorrente(), false);
 			incendioSpento = true;
 		}
-
-		/**
-		 * prints the actual map
-		 */
-		System.out.println("\u001B[33m Mappa attuale: ");
-		localFireMap.printMap(getLocalName());
+		
 
 		return localFireMap;
 	}
@@ -101,33 +96,44 @@ public class FireFighter extends GossipAgent {
 	 */
 	@Override
 	public void printRecap(Serializable aggregatedContent, List<AID> neighbours, String localName) {
-		
-		System.out.println("\n\u001B[32m========== " + localName + " ==========");
-		
-		if (incendioSpento) {
-			System.out.println(
-					"\u001B[32mIl robot " + localName + " ha spento l'incendio nella stanza " + getPosizioneCorrente());
-		} else {
-			System.out.println("Il robot " + localName + " si è spostato nella stanza " + getPosizioneCorrente()
-					+ " ma non ha trovato nessun incendio");
-		}
-		if (checkFires()) {
-			System.out.println("\u001B[35mIl robot " + localName + " non trova altri incendi nell'edificio");
-			this.doDelete();
+		synchronized (FireFighter.class) {
+			System.out.println("\n\u001B[32m========== " + localName + " ==========");
+			
+			System.out.println("\u001B[33m Mappa attuale: ");
+			localFireMap.printMap();
+			
+			if (incendioSpento) {
+				System.out.println("\u001B[32mIl robot " + localName + " ha spento l'incendio nella stanza "
+						+ getPosizioneCorrente());
+			} else {
+				System.out.println("Il robot " + localName + " si è spostato nella stanza " + getPosizioneCorrente()
+						+ " ma non ha trovato nessun incendio");
+			}
+			if (checkFires()) {
+				System.out.println("\u001B[35mIl robot " + localName + " non trova altri incendi nell'edificio");
+				this.doDelete();
+			}
 		}
 	}
 
 	/**
 	 * method that changes the room of the robot randomly. It takes the number of
-	 * rooms and generates a random number between 0 and that
+	 * rooms and generates a random number between 0 and that. Then, checks if the
+	 * room is on fire. If it is on fire, it goes there. Else, it generates another
+	 * number
 	 */
 	public void changeRoom() {
-		Random rand = new Random();
-		Integer numberOfRooms = FireMap.getMaxRoom();
 
-		Integer stanza = rand.nextInt(0, numberOfRooms + 1);
+		Integer stanza = 0;
+		do {
+			Random rand = new Random();
+			Integer numberOfRooms = FireMap.getMaxRoom();
+
+			stanza = rand.nextInt(0, numberOfRooms + 1);
+		} while (!this.localFireMap.getRoomsOnFire().contains(stanza));
 
 		this.setPosizioneCorrente(stanza);
+
 	}
 
 	/**
@@ -177,9 +183,10 @@ public class FireFighter extends GossipAgent {
 		sendFirstMessage();
 		super.setup();
 	}
-	
+
 	/**
 	 * checks if there is still a room with fire. Used to stop a robot
+	 * 
 	 * @return
 	 */
 	public Boolean checkFires() {
