@@ -1,6 +1,8 @@
 package utils;
 
 import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import jade.core.AID;
@@ -15,17 +17,29 @@ public abstract class SpreadingAgent extends UtilityAgent {
 	@Override
 	protected void setup() {
 		List<AID> neighbours = this.setConnections("src/connections.txt");
-
+		List<Serializable> receivedContent = new ArrayList<>();
 		printNeighbours(neighbours, getLocalName());
 
 		addBehaviour(new TickerBehaviour(this, getAgentPeriod("src/config/periods.txt")) {
-
+		
 			@Override
 			public void onTick() {
 				ACLMessage receivedMessage = receive();
 				AID sender = receivedMessage.getSender();
-
+				Boolean alreadyReceived = false;
 				ACLMessage newMessage = new ACLMessage(ACLMessage.INFORM);
+				try {
+					if(receivedContent.contains(receivedMessage.getContentObject())) {
+						alreadyReceived = true;
+					} else {
+						receivedContent.add(receivedMessage.getContentObject());
+					}
+				} catch (UnreadableException e) {
+					e.printStackTrace();
+				}
+				if(alreadyReceived) {
+					doDelete();
+				}
 				try {
 					newMessage.setContentObject(receivedMessage.getContentObject());
 				} catch (IOException | UnreadableException e) {
@@ -37,7 +51,7 @@ public abstract class SpreadingAgent extends UtilityAgent {
 						newMessage.addReceiver(aid);
 					}
 				}
-
+				
 				send(newMessage);
 
 				printRecap(newMessage, this.getAgent().getLocalName());
