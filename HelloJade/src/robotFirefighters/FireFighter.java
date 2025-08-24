@@ -142,7 +142,7 @@ public class FireFighter extends GossipAgent {
 	 * @return the starting position of the robot
 	 */
 	private int readStartPosition(String pathFile) {
-		int pos = -1; // default value if not found
+		int pos = 0; // default value if not found
 		try (BufferedReader br = new BufferedReader(new FileReader(pathFile))) {
 			String line;
 			while ((line = br.readLine()) != null) {
