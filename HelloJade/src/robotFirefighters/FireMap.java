@@ -32,7 +32,7 @@ public class FireMap {
                 fireMap.put(room, fire);
             }
             initialized = true;
-            System.out.println("[FireMap] Mappa caricata da file.");
+            System.out.println("[FireMap] Map loaded from file");
         } catch (IOException e) {
             e.printStackTrace();
         }

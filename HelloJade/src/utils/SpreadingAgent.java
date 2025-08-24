@@ -28,13 +28,9 @@ public abstract class SpreadingAgent extends UtilityAgent {
 				ACLMessage newMessage = new ACLMessage(ACLMessage.INFORM);
 				try {
 					newMessage.setContentObject(receivedMessage.getContentObject());
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
+				} catch (IOException | UnreadableException e) {
 					e.printStackTrace();
-				} catch (UnreadableException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				} 
 
 				for (AID aid : neighbours) {
 					if (!aid.equals(sender)) {

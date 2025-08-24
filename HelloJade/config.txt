@@ -1,4 +1,5 @@
-Robot1:robotFirefighters.FireFighter;
-Robot2:robotFirefighters.FireFighter;
-Robot3:robotFirefighters.FireFighter;
-Robot4:robotFirefighters.FireFighter;
+TermometroCucina:temperatureSensors.TemperatureSensor;
+TermometroSala:temperatureSensors.TemperatureSensor;
+TermometroLetto:temperatureSensors.TemperatureSensor;
+TermometroBagno:temperatureSensors.TemperatureSensor;
+TermometroEsterno:temperatureSensors.TemperatureSensor;

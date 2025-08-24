@@ -23,9 +23,9 @@ public class FireFighter extends GossipAgent {
 	/**
 	 * 
 	 */
-	Integer posizioneCorrente;
+	Integer currentPosition;
 	SerializableFireMap localFireMap = new SerializableFireMap();
-	Boolean incendioSpento;
+	Boolean fireExtinguished;
 	Boolean firstCycle = true;
 
 	/**
@@ -44,7 +44,7 @@ public class FireFighter extends GossipAgent {
 		/**
 		 * variable used to determine what to output
 		 */
-		incendioSpento = false;
+		fireExtinguished = false;
 
 		/**
 		 * a copy of the local map
@@ -80,12 +80,11 @@ public class FireFighter extends GossipAgent {
 		 * searches in its local map if there is fire in its room. If there is, it then
 		 * extinguish the fire
 		 */
-		Boolean isOnFire = localFireMap.getFireStatus(getPosizioneCorrente());
+		Boolean isOnFire = localFireMap.getFireStatus(getCurrentPosition());
 		if (isOnFire != null && isOnFire) {
-			localFireMap.setFire(getPosizioneCorrente(), false);
-			incendioSpento = true;
+			localFireMap.setFire(getCurrentPosition(), false);
+			fireExtinguished = true;
 		}
-		
 
 		return localFireMap;
 	}
@@ -98,19 +97,19 @@ public class FireFighter extends GossipAgent {
 	public void printRecap(Serializable aggregatedContent, List<AID> neighbours, String localName) {
 		synchronized (FireFighter.class) {
 			System.out.println("\n\u001B[32m========== " + localName + " ==========");
-			
-			System.out.println("\u001B[33m Mappa attuale: ");
+
+			System.out.println("\u001B[33m Current map: ");
 			localFireMap.printMap();
-			
-			if (incendioSpento) {
-				System.out.println("\u001B[32mIl robot " + localName + " ha spento l'incendio nella stanza "
-						+ getPosizioneCorrente());
+
+			if (fireExtinguished) {
+				System.out.println(
+						"\u001B[32mRobot " + localName + " has extinguished the fire in room " + getCurrentPosition());
 			} else {
-				System.out.println("Il robot " + localName + " si è spostato nella stanza " + getPosizioneCorrente()
-						+ " ma non ha trovato nessun incendio");
+				System.out.println("Robot " + localName + " went into room " + getCurrentPosition()
+						+ " but it didn't find any fire");
 			}
 			if (checkFires()) {
-				System.out.println("\u001B[35mIl robot " + localName + " non trova altri incendi nell'edificio");
+				System.out.println("\u001B[35mRobot " + localName + " can't find any other fire in the building");
 				this.doDelete();
 			}
 		}
@@ -124,15 +123,15 @@ public class FireFighter extends GossipAgent {
 	 */
 	public void changeRoom() {
 
-		Integer stanza = 0;
+		Integer room = 0;
 		do {
 			Random rand = new Random();
 			Integer numberOfRooms = FireMap.getMaxRoom();
 
-			stanza = rand.nextInt(0, numberOfRooms + 1);
-		} while (!this.localFireMap.getRoomsOnFire().contains(stanza));
+			room = rand.nextInt(0, numberOfRooms + 1);
+		} while (!this.localFireMap.getRoomsOnFire().contains(room));
 
-		this.setPosizioneCorrente(stanza);
+		this.setCurrentPosition(room);
 
 	}
 
@@ -166,12 +165,12 @@ public class FireFighter extends GossipAgent {
 		return pos;
 	}
 
-	public Integer getPosizioneCorrente() {
-		return this.posizioneCorrente;
+	public Integer getCurrentPosition() {
+		return this.currentPosition;
 	}
 
-	public void setPosizioneCorrente(Integer nuovaPosizione) {
-		this.posizioneCorrente = nuovaPosizione;
+	public void setCurrentPosition(Integer newPosition) {
+		this.currentPosition = newPosition;
 	}
 
 	/**
@@ -206,7 +205,7 @@ public class FireFighter extends GossipAgent {
 	 */
 	public void sendFirstMessage() {
 		FireMap.initialize("src/config/firemap.txt");
-		posizioneCorrente = readStartPosition("src/config/startingpositions.txt");
+		currentPosition = readStartPosition("src/config/startingpositions.txt");
 		localFireMap.copyMap(FireMap.getMap());
 		ACLMessage firstMessage = new ACLMessage(ACLMessage.INFORM);
 		doWait(1000);
@@ -217,7 +216,6 @@ public class FireFighter extends GossipAgent {
 		try {
 			firstMessage.setContentObject(localFireMap);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		send(firstMessage);

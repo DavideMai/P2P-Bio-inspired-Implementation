@@ -57,7 +57,7 @@ public class SerializableFireMap implements Serializable {
 	 */
 	public synchronized void printMap() {
 		for (int i = 0; i < this.getSize(); i++) {
-			System.out.println("Stanza : " + i + "\nIncendio : " + getFireStatus(i));
+			System.out.println("Room : " + i + "\nFire : " + getFireStatus(i));
 		}
 	}
 

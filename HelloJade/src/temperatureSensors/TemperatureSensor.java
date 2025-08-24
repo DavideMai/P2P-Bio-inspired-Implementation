@@ -52,11 +52,11 @@ public class TemperatureSensor extends GossipAgent {
 
 		Temperature avgTemp = (Temperature) aggregatedContent;
 
-		synchronized (System.out) {
+		synchronized (TemperatureSensor.class) {
 			System.out.println("\n\u001B[32m========== " + localName + " ==========");
-			System.out.printf("\u001B[37mTemperatura media attuale: %.2f°C", avgTemp.getValue());
-			System.out.printf("\nTemperatura attuale nella stanza: %.2f°C", this.t.getValue());
-			
+			System.out.printf("\u001B[37mCurrent average temperature: %.2f°C", avgTemp.getValue());
+			System.out.printf("\nCurrent temperature in the room: %.2f°C", this.t.getValue());
+
 		}
 
 	}
@@ -82,7 +82,6 @@ public class TemperatureSensor extends GossipAgent {
 		try {
 			firstMessage.setContentObject(t);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		send(firstMessage);
@@ -100,10 +99,10 @@ public class TemperatureSensor extends GossipAgent {
 	 */
 	public void updateRandomTemperature() {
 		Random rand = new Random();
-		
+
 		double current = t.getValue();
-		
-		double min = current -1.0;
+
+		double min = current - 1.0;
 		double max = current + 1.0;
 		double random = min + (rand.nextDouble() * (max - min));
 

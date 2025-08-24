@@ -31,12 +31,11 @@ public abstract class SenderAgent extends UtilityAgent {
 			public void onTick() {
 				try {
 					Serializable a = generateContent();
-					if(a != null) {
+					if (a != null) {
 						message.setContentObject(a);
 					}
-					
+
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
