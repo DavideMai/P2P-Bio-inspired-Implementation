@@ -21,7 +21,9 @@ import utils.GossipAgent;
 public class FireFighter extends GossipAgent {
 
 	/**
-	 * 
+	 * currentPosition is the current room of the robot
+	 * localFireMap is the local copy of the fire map
+	 * fireExtinguished is a flag that says if the robot extinguished a fire in this period
 	 */
 	Integer currentPosition;
 	SerializableFireMap localFireMap = new SerializableFireMap();
@@ -132,7 +134,9 @@ public class FireFighter extends GossipAgent {
 		} while (!this.localFireMap.getRoomsOnFire().contains(room));
 
 		this.setCurrentPosition(room);
-
+		//considera la possibilità di andare a spegnere tutti un incendio
+		//migliora il decision making
+		//controlla la stanza in cui è, spegne quella e procede con le più vicine
 	}
 
 	/**

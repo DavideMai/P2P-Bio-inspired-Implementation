@@ -11,6 +11,8 @@ import java.util.Map;
  * messages. There is a HashMap between integer and a boolean. The integer is
  * the key and represents the room. The boolean represents if there is fire in
  * the room (true if there is fire)
+ * 
+ * Aggiungi stazione di carica
  */
 public class SerializableFireMap implements Serializable {
 	Map<Integer, Boolean> fireMap;

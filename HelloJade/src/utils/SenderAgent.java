@@ -9,7 +9,7 @@ import jade.core.behaviours.TickerBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.UnreadableException;
 
-public abstract class SenderAgent extends UtilityAgent {
+public abstract class SenderAgent extends PatternAgent {
 
 	/**
 	 * baseline for the setup method of an Agent that sends some data

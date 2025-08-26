@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * class that contains a few methods that are shared across all Agents
  */
-public class UtilityAgent extends Agent {
+public abstract class PatternAgent extends Agent {
 
 	/**
 	 * method that reads a file that specifies the connections between agents based

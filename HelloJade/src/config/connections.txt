@@ -1,5 +1,5 @@
-TermometroCucina: TermometroSala,TermometroLetto,TermometroBagno,TermometroEsterno
-TermometroSala: TermometroCucina,TermometroLetto,TermometroBagno,TermometroEsterno
-TermometroLetto: TermometroCucina,TermometroSala,TermometroBagno,TermometroEsterno
-TermometroBagno: TermometroCucina,TermometroSala,TermometroLetto,TermometroEsterno
-TermometroEsterno: TermometroCucina,TermometroSala,TermometroLetto,TermometroBagno
+Robot1: Robot2,Robot3,Robot4,Robot5
+Robot2: Robot1,Robot5,Robot3,RObot4
+Robot3: Robot1,Robot2,Robot4,Robot5
+Robot4: Robot1,Robot2,Robot3,Robot5
+Robot5: Robot1,Robot2,Robot3,Robot4

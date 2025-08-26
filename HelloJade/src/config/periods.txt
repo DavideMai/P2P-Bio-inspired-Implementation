@@ -1,5 +1,5 @@
-TermometroEsterno: 5000
-TermometroLetto: 1500
-TermometroBagno: 4000
-TermometroSala: 3400
-TermometroCucina: 6800
+Robot1: 5000
+Robot2: 6000
+Robot3: 5000
+Robot4: 10000
+Robot5: 3000

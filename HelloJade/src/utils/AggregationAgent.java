@@ -10,18 +10,12 @@ import jade.core.behaviours.TickerBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.UnreadableException;
 
-public abstract class AggregationAgent extends UtilityAgent {
+public abstract class AggregationAgent extends PatternAgent implements AggregationInterface {
 
 	/**
 	 * 
 	 */
-	
-	/**
-	 * abstract method to aggregate informations. It could be implemented, for
-	 * example, to calculate the mean of an array of numbers
-	 * 
-	 * @return the aggregated object
-	 */
+
 	public abstract Serializable aggregate(List<Serializable> content);
 
 	/**
@@ -38,15 +32,24 @@ public abstract class AggregationAgent extends UtilityAgent {
 	 */
 	@Override
 	protected void setup() {
+		/**
+		 * a list of known informations
+		 */
 		List<Serializable> content = new ArrayList<>();
 		addBehaviour(new TickerBehaviour(this, getAgentPeriod("src/config/periods.txt")) {
 
 			@Override
 			public void onTick() {
+				/**
+				 * a Serializable object that will represent the aggregated content
+				 */
 				Serializable aggregatedContent = null;
 
 				ACLMessage message = receive();
 
+				/**
+				 * if I receive a message, I add its content to the list content
+				 */
 				if (message != null) {
 					try {
 						content.add(message.getContentObject());
@@ -54,8 +57,14 @@ public abstract class AggregationAgent extends UtilityAgent {
 						e.printStackTrace();
 					}
 
+					/**
+					 * I apply an aggregation function to the known content
+					 */
 					aggregatedContent = aggregate(content);
 
+					/**
+					 * print something about the aggregated content
+					 */
 					printRecap(aggregatedContent);
 				}
 
