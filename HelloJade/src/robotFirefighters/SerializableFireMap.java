@@ -49,7 +49,12 @@ public class SerializableFireMap implements Serializable {
 	}
 
 	public Boolean getFireStatus(int position) {
-		return fireMap.get(position);
+		if (fireMap.containsKey(position)) {
+			return fireMap.get(position);
+		} else {
+			return false;
+		}
+
 	}
 
 	/**
@@ -62,7 +67,11 @@ public class SerializableFireMap implements Serializable {
 			System.out.println("Room : " + i + "\nFire : " + getFireStatus(i));
 		}
 	}
-
+	
+	/**
+	 * method to get the rooms that are still on fire
+	 * @return a list of rooms on fire
+	 */
 	public List<Integer> getRoomsOnFire() {
 
 		List<Integer> roomsOnFire = new ArrayList<>();

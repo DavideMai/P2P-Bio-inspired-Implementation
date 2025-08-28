@@ -20,7 +20,7 @@ public abstract class PatternAgent extends Agent {
 	 * on their LocalName
 	 * 
 	 * @param filePath the path of the file
-	 * @return a List of neighbors
+	 * @return 			a List of neighbors
 	 */
 	public List<AID> setConnections(String filePath) {
 		List<AID> neighbors = new ArrayList<>();
@@ -51,20 +51,35 @@ public abstract class PatternAgent extends Agent {
 
 		return neighbors;
 	}
-
+	
+	/**
+	 * method that prints the list of neighbours of an agent
+	 * @param neighbours 	the list of neighbours
+	 * @param localName 	the local name of the agent
+	 */
 	public static synchronized void printNeighbours(List<AID> neighbours, String localName) {
 		System.out.println("The agent " + localName + " is connected to:\n");
 		for (AID a : neighbours) {
 			System.out.println(a.getLocalName());
 		}
 	}
-
+	
+	/**
+	 * method that sets the receivers of a message
+	 * @param m				the message
+	 * @param neighbours	the receivers of the message
+	 */
 	public void setReceivers(ACLMessage m, List<AID> neighbours) {
 		for (AID a : neighbours) {
 			m.addReceiver(a);
 		}
 	}
-
+	
+	/**
+	 * method that reads the period of an agent from a file, and returns it
+	 * @param filePath		the path of the file
+	 * @return				the period of the agent that calls the method
+	 */
 	public int getAgentPeriod(String filePath) {
 		String myName = this.getLocalName();
 		int value = 1000; // default value if it is missing

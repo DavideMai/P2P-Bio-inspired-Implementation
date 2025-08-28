@@ -13,12 +13,6 @@ import jade.lang.acl.UnreadableException;
 public abstract class AggregationAgent extends PatternAgent implements AggregationInterface {
 
 	/**
-	 * 
-	 */
-
-	public abstract Serializable aggregate(List<Serializable> content);
-
-	/**
 	 * abstract method to print the aggregated object
 	 */
 	public abstract void printRecap(Serializable aggregatedContent);
