@@ -32,7 +32,6 @@ public class FireFighter extends GossipAgent {
 	Integer currentPosition;
 	SerializableFireMap localFireMap = new SerializableFireMap();
 	Boolean fireExtinguished;
-	Boolean firstCycle = true;
 
 	/**
 	 * implementation of the aggregate method. The robot receives a set of Maps
