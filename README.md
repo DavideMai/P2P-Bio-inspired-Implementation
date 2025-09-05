@@ -1,21 +1,27 @@
-## HOW TO RUN A JADE PROGRAM ON ECLIPSE:
-- Import the project in your workspace
-- Download Jade library from https://jade.tilab.com/download/jade/license/jade-download/, more precisely the jadeBin package.
-- Right-click on the project->Build Path->Configure Build Path
-- Libraries->Classpath->Add External JARs
-- Inside the downloaded file there will be a jade.jar file, inside jade/lib/. Add that file
-- Apply and close
-- Right-click on the project->Run as->Run Configuration->Java Application->New Run Configuration.
-- Go into Dependencies->Classpath Entries and add the downloaded jar. Apply and close.
-- Check if there is a module-info.java file. If it exists, delete it from the project.
-- Return into Dependencies->Classpath Entries and click Restore Default Entries.
-- Now the Modulepath Entries section shuold be empty, and the Classpath Entries section should contain the project, jade.jar and JRE System Library.
-- Apply
-- Go into Main->Main.class and type jade.Boot.
-- Go into Arguments, and add -gui AgentName:packagename.classname;Agent2Name:packagename.classname as Program Arguments. AgentName, packagename and classname according to the program.
-- The AgentName attribute is the name of the agent, and can be whatever you want.
-- For example, in this program, I put -gui Agent1:test.FirstAgent;Agent2:test.FirstAgent;Agent3:test.FirstAgent to create 3 agents, named Agent1, Agent2 and Agent3 from the class FirstAgent in the package test.
+## Framework per lo sviluppo di agenti che seguono pattern di comunicazione P2P di ispirazione biologica
+
+In questa repository si trova un framework che permette di sviluppare agenti che seguono alcuni pattern di comunicazione presentati da Fernandez-Marquez in "Description and composition of bio-inspired design patterns:
+a complete overview".
+
+In particolare, gli agenti sviluppati possono seguire lo Spreading Pattern, l'Aggregation Pattern e il Gossip Pattern.
+
+## Guida all'implementazione
+
+Il framework presenta tre classi astratte, chiamate GossipAgent, SpreadingAgent e AggregationAgent, che descrivono il funzionamento di un agente che segue un determinato pattern di comunicazione, invocando alcuni metodi astratti.
+Per sviluppare un agente che segua uno di questi pattern è necessario creare una classe che estenda la classe astratta che descrive il comportamento da seguire, e ridefinire alcuni metodi astratti per far sì che eseguano le azioni previste. È inoltre necessario definire un oggetto che implementi l'interfaccia Serializable che sarà il contenuto dei messaggi scambiati tra gli agenti.
+
+## Gli esempi
+
+Nella repository sono presenti due esempi:
+- Termometri Intelligenti, nel package temperatureSensors. Modella il funzionamento di termometri che si scambiano la temperatura di una stanza e calcolano la media delle temperature in una casa, per mostrare entrambi i dati
+- Robot Firefighters, nel package robotFirefighters. Modella il funzionamento di alcuni robot firefighters che si spostano in un edificio e comunicano tra di loro quando riescono a spegnere un incendio.
 
 
-This manual has been written with the help of ChatGPT. It helped me on the setup of the project, as I was getting different errors, mainly because of the module-info.java file.
-If you have any problem running the program, you can search for documentaion at https://jade.tilab.com/documentation/tutorials-guides/ or ask ChatGPT
+Ho aggiunto due file compile.bat e start_agents.bat per compilare ed eseguire gli esempi. Attualmente avviene l'esecuzione dell'esempio dei Robot Firefighters.
+
+Tutte le informazioni necessarie all'avvio, come gli agenti da creare e i loro periodi, sono presenti in alcuni file di testo.
+- In config.txt si specificano gli agenti da eseguire inserendo un agente per riga. La struttura è NomeAgente:package.Classe;
+- In src/config/connections.txt si specificano le connessioni tra agenti. La linea Robot1: Robot2,Robot3,Robot4 indica che l'agente chiamato Robot1 può comunicare con gli agenti chiamati Robot2, Robot3 e Robot4.
+- In src/config/periods.txt si specificano i periodi di esecuzione in millisecondi. La linea Robot1: 5000 indica che l'agente chiamato Robot1 ha un periodo di 5000ms
+- In src/config/startingpositions.txt si specificano le posizioni di partenza dei robot firefighters. Robot1,10 indica che l'agente chiamato Robot1 partirà dalla stanza 10
+- In src/config/firemap.txt si specificano le condizioni iniziali dell'edificio nell'esempio dei robot firefighters. La riga 0,true indica che nella stanza 0 è presente un incendio. La riga 1,false indica che nella stanza 1 non è presente un incendio.
