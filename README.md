@@ -43,8 +43,14 @@ Per l'esecuzione degli esempi su una macchina windows, è necessario eseguire il
 
 Per l'esecuzione degli esempi su altri sistemi operativi è necessario passare il contenuto del file config.txt come argomenti a Java. Su linux e MacOS si esegue la stringa seguente in una console aperta nella cartella del framework, modificandone il contenuto.
 
-```bash java -cp .:jade.jar:classes jade.Boot -gui -agents "NomeAgente1:package.Classe;NomeAgente2:package.Classe;"``` sostituendo in NomeAgente il nome dell'agente da creare, in package il nome del package che contiene la classe dell'agente e in Classe il nome della classe che descrive il comportamento dell'agente. Per esempio, per eseguire l'esempio fornito, è necessario copiare la stringa
-```bash java -cp .:jade.jar:classes jade.Boot -gui -agents "Robot1:robotFirefighters.FireFighter;Robot2:robotFirefighters.FireFighter;Robot3:robotFirefighters.FireFighter;Robot4:robotFirefighters.FireFighter;Robot5:robotFirefighters.FireFighter;"```
+```bash
+   java -cp .:jade.jar:classes jade.Boot -gui -agents "NomeAgente1:package.Classe;NomeAgente2:package.Classe;"
+ ```
+
+ sostituendo in NomeAgente il nome dell'agente da creare, in package il nome del package che contiene la classe dell'agente e in Classe il nome della classe che descrive il comportamento dell'agente. Per esempio, per eseguire l'esempio fornito, è necessario copiare la stringa
+```bash 
+java -cp .:jade.jar:classes jade.Boot -gui -agents "Robot1:robotFirefighters.FireFighter;Robot2:robotFirefighters.FireFighter;Robot3:robotFirefighters.FireFighter;Robot4:robotFirefighters.FireFighter;Robot5:robotFirefighters.FireFighter;"
+```
 
 ### Sviluppo di altri agenti
 
