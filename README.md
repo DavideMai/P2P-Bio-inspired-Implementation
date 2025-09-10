@@ -29,11 +29,11 @@ I parametri da passare a Java per creare agenti che seguono questi esempi sono:
 Ho aggiunto due file compile.bat e start_agents.bat per compilare ed eseguire gli esempi. Attualmente avviene l'esecuzione dell'esempio dei Robot Firefighters.
 
 Tutte le informazioni necessarie all'avvio, come gli agenti da creare e i loro periodi, sono presenti in alcuni file di testo.
-- In config.txt si specificano gli agenti da eseguire inserendo un agente per riga. La struttura è NomeAgente:package.Classe;. Viene utilizzato solo su macchine windows, per poter utilizzare i file .bat per eseguire gli esempi.
-- In src/config/connections.txt si specificano le connessioni tra agenti. La linea Robot1: Robot2,Robot3,Robot4 indica che l'agente chiamato Robot1 può comunicare con gli agenti chiamati Robot2, Robot3 e Robot4.
-- In src/config/periods.txt si specificano i periodi di esecuzione in millisecondi. La linea Robot1: 5000 indica che l'agente chiamato Robot1 ha un periodo di 5000ms
-- In src/config/startingpositions.txt si specificano le posizioni di partenza dei robot firefighters. Robot1,10 indica che l'agente chiamato Robot1 partirà dalla stanza 10
-- In src/config/firemap.txt si specificano le condizioni iniziali dell'edificio nell'esempio dei robot firefighters. La riga 0,true indica che nella stanza 0 è presente un incendio. La riga 1,false indica che nella stanza 1 non è presente un incendio.
+- In config.txt si specificano gli agenti da eseguire inserendo un agente per riga. La struttura è NomeAgente:package.Classe;. Viene utilizzato solo su macchine windows, per poter utilizzare i file .bat per eseguire gli esempi. Obbligatorio per ogni esempio.
+- In src/config/connections.txt si specificano le connessioni tra agenti. La linea Robot1: Robot2,Robot3,Robot4 indica che l'agente chiamato Robot1 può comunicare con gli agenti chiamati Robot2, Robot3 e Robot4. Obbligatorio per ogni esempio.
+- In src/config/periods.txt si specificano i periodi di esecuzione in millisecondi. La linea Robot1: 5000 indica che l'agente chiamato Robot1 ha un periodo di 5000ms. Obbligatorio per ogni esempio.
+- In src/config/startingpositions.txt si specificano le posizioni di partenza dei robot firefighters. Robot1,10 indica che l'agente chiamato Robot1 partirà dalla stanza 10. Obbligatorio per i robot firefighter
+- In src/config/firemap.txt si specificano le condizioni iniziali dell'edificio nell'esempio dei robot firefighters. La riga 0,true indica che nella stanza 0 è presente un incendio. La riga 1,false indica che nella stanza 1 non è presente un incendio. Obbligatorio per i robot firefighter.
 
 ## Guida all'utilizzo
 
