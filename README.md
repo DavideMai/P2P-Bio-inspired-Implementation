@@ -1,7 +1,7 @@
 ## Framework per lo sviluppo di applicazioni ad agenti auto-organizzanti mediante design pattern di ispirazione biologica
 
 In questa repository si trova un framework che permette di sviluppare agenti che seguono alcuni pattern di comunicazione presentati da Fernandez-Marquez in "Description and composition of bio-inspired design patterns:
-a complete overview".
+a complete overview" reperibile a https://link.springer.com/article/10.1007/S11047-012-9324-Y.
 
 In particolare, gli agenti sviluppati possono seguire lo Spreading Pattern, l'Aggregation Pattern e il Gossip Pattern.
 
@@ -14,7 +14,8 @@ Per sviluppare un agente che segua uno di questi pattern è necessario creare un
 
 ## Requisiti
 Per eseguire gli esempi è necessario avere il jdk di Java 20 (o successivi) configurato correttamente sulla propria macchina. Esistono numerose guide online per l'installazione.
-La versione minima di JADE è la 4.6.0, già inclusa nel framework.
+La versione minima di JADE è la 4.6.0. Per scaricarla, recarsi a https://jade.tilab.com/download/jade/ e seguire le indicazioni. Alla richiesta di che pacchetto scaricare, scegliere jadeBin. Si scaricherà quindi un file .zip. Estrarre l'archivio in una destinazione nota.
+Aprire Eclipse, 
 
 ## Esempi
 
