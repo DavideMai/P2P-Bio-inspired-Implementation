@@ -18,13 +18,17 @@ La versione minima di JADE è la 4.6.0, già inclusa nel framework.
 
 ## Esempi
 
-Nella repository sono presenti due esempi:
+Nella repository sono presenti due esempi basati sugli agenti:
 - Termometri Intelligenti, nel package temperatureSensors. Modella il funzionamento di termometri che si scambiano la temperatura di una stanza e calcolano la media delle temperature in una casa, per mostrare entrambi i dati
 - Robot Firefighters, nel package robotFirefighters. Modella il funzionamento di alcuni robot firefighters che si spostano in un edificio e comunicano tra di loro quando riescono a spegnere un incendio.
 
 I parametri da passare a Java per creare agenti che seguono questi esempi sono:
 - NomeRobot:robotFirefighters.FireFighter; per i robot firefighter
 - NomeTermometro:temperatureSensors.TemperatureSensor; per i termometri intelligenti.
+I parametri "NomeRobot" e "NomeTermometro" devono essere modificati per assegnare un nome all'agente.
+La stringa Robot1:robotFirefighters.FireFighter; indica a JADE di creare un agente chiamato "Robot1" che segue il comportamento specificato nella classe FireFighter nel package robotFirefighters.
+I nomi degli agenti sono nomi simbolici che possono essere inventati al momento. È sufficiente mantenere gli stessi nomi in ogni file di configurazione per garantire il corretto funzionamento.
+Nel caso di una macchina windows, questi parametri possono essere inseriti nel file config.txt, inserendo un agente per riga.
 
 Ho aggiunto due file compile.bat e start_agents.bat per compilare ed eseguire gli esempi. Attualmente avviene l'esecuzione dell'esempio dei Robot Firefighters.
 
@@ -39,6 +43,7 @@ Tutte le informazioni necessarie all'avvio, come gli agenti da creare e i loro p
 
 Per eseguire gli esempi è sufficiente clonare la repository sulla propria macchina ed eseguire alcuni comandi.
 Nella repository i file sono già configurati per l'esecuzione dell'esempio riguardante i robot firefighters.
+Per eseguire l'esempio dei termometri intelligenti, è necessario modificare i file config.txt, src/config/connections.txt, src/config/periods.txt. In particolare, nel file config.txt vanno specificati i nomi degli agenti, in connections.txt i periodi degli agenti associati ai nomi e in connections.txt le connessioni tra agenti associate ai nomi.
 
 ### Macchina Windows
 
