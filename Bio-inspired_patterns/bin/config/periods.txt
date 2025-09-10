@@ -1,0 +1,5 @@
+Robot1: 5000
+Robot2: 6000
+Robot3: 5000
+Robot4: 10000
+Robot5: 3000
