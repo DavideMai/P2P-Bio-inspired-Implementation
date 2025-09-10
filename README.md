@@ -18,11 +18,14 @@ Nella repository sono presenti due esempi:
 - Termometri Intelligenti, nel package temperatureSensors. Modella il funzionamento di termometri che si scambiano la temperatura di una stanza e calcolano la media delle temperature in una casa, per mostrare entrambi i dati
 - Robot Firefighters, nel package robotFirefighters. Modella il funzionamento di alcuni robot firefighters che si spostano in un edificio e comunicano tra di loro quando riescono a spegnere un incendio.
 
+I parametri da passare a Java per creare agenti che seguono questi esempi sono:
+- NomeRobot:robotFirefighters.FireFighter; per i robot firefighter
+- NomeTermometro:temperatureSensors.TemperatureSensor; per i termometri intelligenti.
 
 Ho aggiunto due file compile.bat e start_agents.bat per compilare ed eseguire gli esempi. Attualmente avviene l'esecuzione dell'esempio dei Robot Firefighters.
 
 Tutte le informazioni necessarie all'avvio, come gli agenti da creare e i loro periodi, sono presenti in alcuni file di testo.
-- In config.txt si specificano gli agenti da eseguire inserendo un agente per riga. La struttura è NomeAgente:package.Classe;
+- In config.txt si specificano gli agenti da eseguire inserendo un agente per riga. La struttura è NomeAgente:package.Classe;. Viene utilizzato solo su macchine windows, per poter utilizzare i file .bat per eseguire gli esempi.
 - In src/config/connections.txt si specificano le connessioni tra agenti. La linea Robot1: Robot2,Robot3,Robot4 indica che l'agente chiamato Robot1 può comunicare con gli agenti chiamati Robot2, Robot3 e Robot4.
 - In src/config/periods.txt si specificano i periodi di esecuzione in millisecondi. La linea Robot1: 5000 indica che l'agente chiamato Robot1 ha un periodo di 5000ms
 - In src/config/startingpositions.txt si specificano le posizioni di partenza dei robot firefighters. Robot1,10 indica che l'agente chiamato Robot1 partirà dalla stanza 10
@@ -51,6 +54,8 @@ Per l'esecuzione degli esempi su altri sistemi operativi è necessario passare i
 ```bash 
 java -cp .:jade.jar:classes jade.Boot -gui -agents "Robot1:robotFirefighters.FireFighter;Robot2:robotFirefighters.FireFighter;Robot3:robotFirefighters.FireFighter;Robot4:robotFirefighters.FireFighter;Robot5:robotFirefighters.FireFighter;"
 ```
+
+In ogni caso è di estrema importanza che tutti i nomi degli agenti presenti nei file di configurazione e che vengono passati come parametri di avvio a Java siano gli stessi. Altrimenti, gli esempi non funzionano.
 
 ### Sviluppo di altri agenti
 
