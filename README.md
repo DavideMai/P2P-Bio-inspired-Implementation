@@ -47,23 +47,32 @@ Per eseguire l'esempio dei termometri intelligenti, è necessario modificare i f
 
 ### Macchina Windows
 
-Per l'esecuzione degli esempi su una macchina windows, è necessario eseguire il file compile.bat e seguire le istruzioni a schermo. Successivamente, è necessario eseguire il file start_agents.bat.
+Per l'esecuzione degli esempi su una macchina windows, è necessario eseguire il file windows_compile.bat e seguire le istruzioni a schermo. Successivamente, è necessario eseguire il file windows_start_agents.bat.
 
 È necessario configurare i file sopra descritti per eseguire ogni esempio.
 
 ### Altri sistemi operativi (Linux, MacOS)
 
-Per l'esecuzione degli esempi su altri sistemi operativi è necessario passare il contenuto del file config.txt come argomenti a Java. Su linux e MacOS si esegue la stringa seguente in una console aperta nella cartella del framework, modificandone il contenuto.
+Per l'esecuzione degli esempi su altri sistemi operativi come Linux e MacOS ho creato due script bash che permettono la compilazione e l'avvio del framework, denominati linux_compile.sh e linux_start_agents.sh. Prima di poterli eseguire, è necessario conferire loro i permessi di esecuzione.
+Si apre la console nella cartella del progetto (all'interno di Bio-inspired_patterns) e si digita
 
 ```bash
-   java -cp .:jade.jar:classes jade.Boot -gui -agents "NomeAgente1:package.Classe;NomeAgente2:package.Classe;"
+   chmod +x linux_compile.sh
  ```
+e
 
- sostituendo in NomeAgente il nome dell'agente da creare, in package il nome del package che contiene la classe dell'agente e in Classe il nome della classe che descrive il comportamento dell'agente. Per esempio, per eseguire l'esempio fornito, è necessario copiare la stringa
-```bash 
-java -cp .:jade.jar:classes jade.Boot -gui -agents "Robot1:robotFirefighters.FireFighter;Robot2:robotFirefighters.FireFighter;Robot3:robotFirefighters.FireFighter;Robot4:robotFirefighters.FireFighter;Robot5:robotFirefighters.FireFighter;"
-```
-
+```bash
+   chmod +x linux_start_agents.sh
+ ```
+Successivamente si possono eseguire con 
+```bash
+   ./linux_compile.sh
+ ```
+e con 
+```bash
+   ./linux_start_agents.sh
+ ```
+È necessario che prima avvenga la compilazione e successivamente l'avvio del framework.
 In ogni caso è di estrema importanza che tutti i nomi degli agenti presenti nei file di configurazione e che vengono passati come parametri di avvio a Java siano gli stessi. Altrimenti, gli esempi non funzionano.
 
 ### Sviluppo di altri agenti
