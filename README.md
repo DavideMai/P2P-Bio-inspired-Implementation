@@ -14,8 +14,20 @@ Per sviluppare un agente che segua uno di questi pattern è necessario creare un
 
 ## Requisiti
 Per eseguire gli esempi è necessario avere il jdk di Java 20 (o successivi) configurato correttamente sulla propria macchina. Esistono numerose guide online per l'installazione.
-La versione minima di JADE è la 4.6.0. Per scaricarla, recarsi a https://jade.tilab.com/download/jade/ e seguire le indicazioni. Alla richiesta di che pacchetto scaricare, scegliere jadeBin. Si scaricherà quindi un file .zip. Estrarre l'archivio in una destinazione nota.
-Aprire Eclipse, 
+Per sviluppare il framework ho utilizzato Eclipse, reperibile a https://www.eclipse.org/downloads/. Ho utilizzato la versione 2024-09 e testato il funzionamento anche sulla versione 2023-09. Dovrebbe funzionare anche sulle nuove versioni.
+La versione minima di JADE è la 4.6.0. Per scaricarla, recarsi a https://jade.tilab.com/download/jade/ e seguire le indicazioni. Alla richiesta di che pacchetto scaricare, scegliere jadeBin. Si scaricherà quindi un file .zip. 
+- Estrarre l'archivio in una destinazione nota.
+- Scaricare il file .zip della repository ed estrarlo.
+- Copiare la cartella lib dall'archivio di jade e incollarla all'interno di Bio-inspired_patterns.
+- Aprire Eclipse in una nuova workspace.
+- Cliccare "import projects", general, projects from folder or archive.
+- Cliccare poi su "Directory", e cercare la cartella Bio-inspired_patterns. Selezionare la cartella e cliccare su Finish.
+- Tasto destro sul progetto, Build Path -> Configure Build Path.
+- In "Order and Export", cliccare su jade.jar. La casella a sinistra conterrà una spunta. Cliccare su Apply.
+- Andare nella scheda "Libraries". Nella sezione "Classpath" ci sarà jade.jar. Spostarlo all'interno di Modulepath tenendo premuto il tasto sinistro del mouse.
+
+Ora il progetto è adeguatamente configurato e utilizza la libreria esterna Jade.
+
 
 ## Esempi
 
