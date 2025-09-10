@@ -12,6 +12,10 @@ Il framework presenta tre classi astratte, chiamate GossipAgent, SpreadingAgent 
 ![Class Diagram](Bio-inspired_patterns/img/Classes.drawio.png)
 Per sviluppare un agente che segua uno di questi pattern è necessario creare una classe che estenda la classe astratta che descrive il comportamento da seguire, e ridefinire alcuni metodi astratti per far sì che eseguano le azioni previste. È inoltre necessario definire un oggetto che implementi l'interfaccia Serializable che sarà il contenuto dei messaggi scambiati tra gli agenti.
 
+## Requisiti
+Per eseguire gli esempi è necessario avere il jdk di Java 20 (o successivi) configurato correttamente sulla propria macchina. Esistono numerose guide online per l'installazione.
+La versione minima di JADE è la 4.6.0, già inclusa nel framework.
+
 ## Esempi
 
 Nella repository sono presenti due esempi:
