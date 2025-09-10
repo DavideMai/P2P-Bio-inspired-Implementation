@@ -25,6 +25,7 @@ Nella repository sono presenti due esempi basati sugli agenti:
 I parametri da passare a Java per creare agenti che seguono questi esempi sono:
 - NomeRobot:robotFirefighters.FireFighter; per i robot firefighter
 - NomeTermometro:temperatureSensors.TemperatureSensor; per i termometri intelligenti.
+
 I parametri "NomeRobot" e "NomeTermometro" devono essere modificati per assegnare un nome all'agente.
 La stringa Robot1:robotFirefighters.FireFighter; indica a JADE di creare un agente chiamato "Robot1" che segue il comportamento specificato nella classe FireFighter nel package robotFirefighters.
 I nomi degli agenti sono nomi simbolici che possono essere inventati al momento. È sufficiente mantenere gli stessi nomi in ogni file di configurazione per garantire il corretto funzionamento.
@@ -32,7 +33,7 @@ Nel caso di una macchina windows, questi parametri possono essere inseriti nel f
 
 Ho aggiunto due file compile.bat e start_agents.bat per compilare ed eseguire gli esempi. Attualmente avviene l'esecuzione dell'esempio dei Robot Firefighters.
 
-Tutte le informazioni necessarie all'avvio, come gli agenti da creare e i loro periodi, sono presenti in alcuni file di testo.
+Tutte le informazioni necessarie all'avvio, come gli agenti da creare e i loro periodi, sono presenti in alcuni file di testo. Questa lista è da seguire per cambiare esempio, o per eseguire un qualsiasi altro tipo di agente precedentemente creato.
 - In config.txt si specificano gli agenti da eseguire inserendo un agente per riga. La struttura è NomeAgente:package.Classe;. Viene utilizzato solo su macchine windows, per poter utilizzare i file .bat per eseguire gli esempi. Obbligatorio per ogni esempio.
 - In src/config/connections.txt si specificano le connessioni tra agenti. La linea Robot1: Robot2,Robot3,Robot4 indica che l'agente chiamato Robot1 può comunicare con gli agenti chiamati Robot2, Robot3 e Robot4. Obbligatorio per ogni esempio.
 - In src/config/periods.txt si specificano i periodi di esecuzione in millisecondi. La linea Robot1: 5000 indica che l'agente chiamato Robot1 ha un periodo di 5000ms. Obbligatorio per ogni esempio.
